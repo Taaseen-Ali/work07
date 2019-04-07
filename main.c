@@ -28,5 +28,4 @@ int main(int argc, char **argv) {
   free_matrix( edges );
   free_matrix( polygons );
   free_stack(csystems);
-  printf("d");
 }
