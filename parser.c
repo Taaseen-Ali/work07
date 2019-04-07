@@ -195,7 +195,7 @@ void parse_file ( char * filename,
       /* printf("%lf %lf %lf\n", */
       /* xvals[0], yvals[0], zvals[0]); */
       tmp = make_scale( xvals[0], yvals[0], zvals[0]);
-      struct matrix* top_csys = peak(csytems);
+      struct matrix* top_csys = peek(csystems);
       matrix_mult(top_csys, tmp);
     }//end scale
     
@@ -207,7 +207,7 @@ void parse_file ( char * filename,
       /* printf("%lf %lf %lf\n", */
       /* xvals[0], yvals[0], zvals[0]); */
       tmp = make_translate( xvals[0], yvals[0], zvals[0]);
-      struct matrix* top_csys = peak(csytems);
+      struct matrix* top_csys = peek(csystems);
       matrix_mult(top_csys, tmp);
     }//end translate
 
@@ -226,7 +226,7 @@ void parse_file ( char * filename,
       else
         tmp = make_rotZ( theta );
 
-      struct matrix* top_csys = peak(csytems);
+      struct matrix* top_csys = peek(csystems);
       matrix_mult(top_csys, tmp);
 
     }//end rotate
@@ -240,7 +240,7 @@ void parse_file ( char * filename,
 
     else if ( strncmp(line, "ident", strlen(line)) == 0 ) {
       //printf("IDENT\t%s", line);
-      ident(peak(csystems));
+      ident(peek(csystems));
     }//end ident
 
     else if ( strncmp(line, "display", strlen(line)) == 0 ) {
